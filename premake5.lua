@@ -4,8 +4,8 @@ project "msdf-atlas-gen"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-    staticruntime "off"
-	
+	staticruntime "off"
+
 	warnings "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -14,8 +14,8 @@ project "msdf-atlas-gen"
 	files
 	{
 		"msdf-atlas-gen/**.h",
-    	"msdf-atlas-gen/**.hpp",
-    	"msdf-atlas-gen/**.cpp"
+		"msdf-atlas-gen/**.hpp",
+		"msdf-atlas-gen/**.cpp"
 	}
 
 	includedirs
@@ -40,13 +40,15 @@ project "msdf-atlas-gen"
 
 	filter "configurations:Debug"
 		runtime "Debug"
-		symbols "on"
+		symbols "On"
+		optimize "Off"
 
 	filter "configurations:Release"
 		runtime "Release"
-		optimize "on"
+		symbols "On"
+		optimize "On"
 
 	filter "configurations:Dist"
 		runtime "Release"
-		optimize "on"
-        symbols "off"
+		symbols "Off"
+		optimize "Speed"
